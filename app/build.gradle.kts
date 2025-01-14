@@ -6,6 +6,7 @@ plugins {
   id(BuildPlugins.KOTLIN_PARCELABLE_PLUGIN)
   id(BuildPlugins.KOTLIN_KAPT)
   id(BuildPlugins.DAGGER_HILT)
+  id(BuildPlugins.COMPOSE_COMPILER) version "2.0.20"
   id("org.jlleitschuh.gradle.ktlint")
 }
 
@@ -13,6 +14,7 @@ plugins {
 
 android {
   compileSdk = (ProjectProperties.COMPILE_SDK)
+  namespace = "dev.baseio.googlecalendar.GoogleCalendarClone"
 
   defaultConfig {
     applicationId = (ProjectProperties.APPLICATION_ID)
@@ -64,10 +66,6 @@ android {
   }
 
   buildFeatures {
-    dataBinding = true
-  }
-
-  buildFeatures {
     compose = true
   }
 
@@ -84,6 +82,7 @@ android {
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
+    isCoreLibraryDesugaringEnabled = true
   }
 
   kotlinOptions {
@@ -91,13 +90,25 @@ android {
   }
 }
 
+composeCompiler {
+  reportsDestination = layout.buildDirectory.dir("compose_compiler")
+}
+
+java {
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(17)
+  }
+}
+
+
 // Required for annotation processing plugins like Dagger
 kapt {
-  generateStubs = true
+ // generateStubs = true
   correctErrorTypes = true
 }
 
 dependencies {
+  coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
   api(project(":ui-onboarding"))
   api(project(":ui-dashboard"))
 
@@ -107,7 +118,7 @@ dependencies {
   implementation(project(":common"))
   implementation(project(":commonui"))
 
-  /* Android Designing and layout */
+  /* Android Designing and layout sss */
   implementation(Lib.Android.COMPOSE_LIVEDATA)
   implementation(Lib.Android.COMPOSE_NAVIGATION)
   implementation(Lib.Kotlin.KT_STD)
@@ -124,7 +135,6 @@ dependencies {
   /*DI*/
   implementation(Lib.Di.hiltAndroid)
   implementation(Lib.Di.hiltNavigationCompose)
-  implementation(Lib.Di.hiltViewModel)
 
   kapt(Lib.Di.hiltCompiler)
   kapt(Lib.Di.hiltAndroidCompiler)
@@ -151,6 +161,10 @@ dependencies {
   testImplementation(TestLib.ROBO_ELECTRIC)
   testImplementation(TestLib.COROUTINES)
   testImplementation(TestLib.MOCKK)
+
+  implementation(libs.coil.kt)
+  implementation(libs.coil.kt.svg)
+  implementation(libs.coil.kt.compose)
 
   androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Lib.Android.COMPOSE_VERSION}")
   debugImplementation("androidx.compose.ui:ui-test-manifest:${Lib.Android.COMPOSE_VERSION}")

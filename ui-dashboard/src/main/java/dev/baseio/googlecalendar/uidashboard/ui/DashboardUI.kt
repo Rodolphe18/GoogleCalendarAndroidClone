@@ -23,7 +23,7 @@ import kotlinx.coroutines.launch
 enum class CalendarExpansion { Collapsed, Expanded }
 
 @OptIn(
-  ExperimentalMaterial3Api::class, androidx.compose.material.ExperimentalMaterialApi::class,
+  androidx.compose.material.ExperimentalMaterialApi::class,
   androidx.compose.animation.ExperimentalAnimationApi::class
 )
 @Composable
@@ -47,12 +47,12 @@ fun DashboardUI(composeNavigator: ComposeNavigator) {
       mutableStateOf(CalendarExpansion.Collapsed)
     }
 
-    NavigationDrawer(
+    ModalNavigationDrawer(
       drawerContent = {
         DashboardDrawer()
       },
       drawerState = drawerState,
-      drawerContainerColor = GoogleCalendarColorProvider.colors.appBarColor,
+      scrimColor = GoogleCalendarColorProvider.colors.appBarColor,
       modifier = Modifier.padding(),
     ) {
       Scaffold(
@@ -118,7 +118,6 @@ private fun CalendarExpansion.toggle(): CalendarExpansion {
   return CalendarExpansion.Expanded
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 private fun switchDrawer(
   scope: CoroutineScope,
   drawerState: DrawerState

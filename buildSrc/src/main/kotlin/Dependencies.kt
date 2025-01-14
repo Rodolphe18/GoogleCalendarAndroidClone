@@ -3,43 +3,41 @@ import Lib.Networking
 /** This file contains versions of all the dependencies used in the module  */
 
 object BuildPlugins {
-  private const val TOOLS_BUILD = "7.1.1"
+  private const val TOOLS_BUILD = "8.7.2"
   private const val KT_LINT = "9.2.1"
-  private const val SAFE_ARGS = "2.3.5"
 
   const val TOOLS_BUILD_GRADLE = "com.android.tools.build:gradle:${TOOLS_BUILD}"
   const val KTLINT_GRADLE_PLUGIN = "org.jlleitschuh.gradle:ktlint-gradle:${KT_LINT}"
-  const val DAGGER_HILT_PLUGIN = "com.google.dagger:hilt-android-gradle-plugin:2.40.5"
-  const val KOTLIN_GRADLE_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
+  const val DAGGER_HILT_PLUGIN = "com.google.dagger:hilt-android-gradle-plugin:2.51.1"
+  const val KOTLIN_GRADLE_PLUGIN = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.25"
   const val ANDROID_APPLICATION_PLUGIN = "com.android.application"
   const val ANDROID_LIBRARY_PLUGIN = "com.android.library"
   const val KOTLIN_ANDROID_PLUGIN = "kotlin-android"
   const val KOTLIN_PARCELABLE_PLUGIN = "kotlin-parcelize"
   const val KOTLIN_KAPT = "kotlin-kapt"
-  const val KTLINT = "org.jlleitschuh.gradle.ktlint"
   const val DAGGER_HILT = "dagger.hilt.android.plugin"
-  const val SAFE_ARGS_KOTLIN = "androidx.navigation.safeargs.kotlin"
+  const val COMPOSE_COMPILER = "org.jetbrains.kotlin.plugin.compose"
 }
 
 object Lib {
   object Kotlin {
-    const val KOTLIN_VERSION = "1.6.0"
-    private const val KTX_CORE_VERSION = "1.2.0"
+    const val KOTLIN_VERSION = "1.9.0"
+    private const val KTX_CORE_VERSION = "1.13.1"
     const val KT_STD = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${KOTLIN_VERSION}"
     const val KTX_CORE = "androidx.core:core-ktx:${KTX_CORE_VERSION}"
     const val DATE_TIME = "org.jetbrains.kotlinx:kotlinx-datetime:0.3.2"
   }
 
   object Android {
-    const val COMPOSE_VERSION = "1.1.0"
-    const val COMPOSE_COMPILER_VERSION = "1.1.0"
-    private const val MATERIAL_DESIGN_VERSION = "1.4.0"
-    private const val COMPOSE_ACTIVITY_VERSION = "1.4.0"
-    private const val COMPOSE_CONSTRAINT_LAYOUT_VERSION = "1.0.0"
-    private const val COMPOSE_NAVIGATION_VERSION = "2.5.0-alpha01"
-    private const val COMPOSE_COIL_VERSION = "1.4.0"
-    private const val ACCOMPANIST_VERSION = "0.23.0"
-    private const val SPLASH_SCREEN_VERSION = "1.0.0-beta01"
+    const val COMPOSE_VERSION = "1.7.6"
+    const val COMPOSE_COMPILER_VERSION = "1.5.15"
+    private const val MATERIAL_DESIGN_VERSION = "1.12.0"
+    private const val COMPOSE_ACTIVITY_VERSION = "1.9.2"
+    private const val COMPOSE_CONSTRAINT_LAYOUT_VERSION = "1.1.0-alpha12"
+    private const val COMPOSE_NAVIGATION_VERSION = "2.7.7"
+    private const val COMPOSE_COIL_VERSION = "3.0.4"
+    private const val ACCOMPANIST_VERSION = "0.30.0"
+    private const val SPLASH_SCREEN_VERSION = "1.0.0"
 
     const val APP_COMPAT = "androidx.appcompat:appcompat:1.3.0-beta01"
 
@@ -50,7 +48,7 @@ object Lib {
     const val COMPOSE_UI = "androidx.compose.ui:ui:${COMPOSE_VERSION}"
     const val ACCOMPANIST_SYSTEM_UI_CONTROLLER =
       "com.google.accompanist:accompanist-systemuicontroller:${ACCOMPANIST_VERSION}"
-    const val COIL_COMPOSE = "io.coil-kt:coil-compose:${COMPOSE_COIL_VERSION}"
+    const val COIL_COMPOSE = "io.coil-kt.coil3:coil-compose:${COMPOSE_COIL_VERSION}"
     const val COMPOSE_LIVEDATA = "androidx.compose.runtime:runtime-livedata:$COMPOSE_VERSION"
     const val COMPOSE_MATERIAL = "androidx.compose.material:material:${COMPOSE_VERSION}"
     const val COMPOSE_TOOLING = "androidx.compose.ui:ui-tooling-preview:${COMPOSE_VERSION}"
@@ -58,7 +56,7 @@ object Lib {
     const val COMPOSE_NAVIGATION =
       "androidx.navigation:navigation-compose:${COMPOSE_NAVIGATION_VERSION}"
     const val MATERIAL_DESIGN = "com.google.android.material:material:${MATERIAL_DESIGN_VERSION}"
-    const val MATERIAL_THREE = "androidx.compose.material3:material3:1.0.0-alpha05"
+    const val MATERIAL_THREE = "androidx.compose.material3:material3:1.3.0"
     const val ACCOMPANIST_INSETS =
       "com.google.accompanist:accompanist-insets:${ACCOMPANIST_VERSION}"
     const val ACCOMPANIST_PAGER = "com.google.accompanist:accompanist-pager:${ACCOMPANIST_VERSION}"
@@ -67,13 +65,12 @@ object Lib {
   }
 
   object Di {
-    private const val DAGGER_VERSION = "2.40.5"
+    private const val DAGGER_VERSION = "2.51.1"
     const val hiltAndroid = "com.google.dagger:hilt-android:${DAGGER_VERSION}"
     const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${DAGGER_VERSION}"
 
-    const val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
-    const val hiltCompiler = "androidx.hilt:hilt-compiler:1.0.0"
-    const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:1.0.0"
+    const val hiltCompiler = "androidx.hilt:hilt-compiler:1.1.0"
+    const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:1.1.0"
   }
 
   object Paging {
@@ -83,7 +80,7 @@ object Lib {
   }
 
   object Room {
-    private const val roomVersion = "2.4.1"
+    private const val roomVersion = "2.6.1"
     const val roomRuntime = "androidx.room:room-runtime:$roomVersion"
     const val roomCompiler = "androidx.room:room-compiler:$roomVersion"
 
@@ -91,11 +88,11 @@ object Lib {
     const val roomKtx = "androidx.room:room-ktx:$roomVersion"
 
     // optional - Paging 3 Integration
-    const val roomPaging = "androidx.room:room-paging:2.4.1"
+    const val roomPaging = "androidx.room:room-paging:2.6.1"
   }
 
   object DataStore{
-    private const val dataStoreVersion = "1.0.0"
+    private const val dataStoreVersion = "1.1.1"
 
     const val dataStore  = "androidx.datastore:datastore-preferences:$dataStoreVersion"
     const val dataStorePreferences = "androidx.datastore:datastore:$dataStoreVersion"
@@ -108,7 +105,7 @@ object Lib {
   }
 
   object Async {
-    private const val COROUTINES_VERSION = "1.6.0"
+    private const val COROUTINES_VERSION = "1.10.0"
 
     const val COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${COROUTINES_VERSION}"
     const val COROUTINES_ANDROID =
@@ -116,15 +113,15 @@ object Lib {
   }
 
   object Networking {
-    private const val RETROFIT_VERSION = "2.9.0"
-    const val OKHTTP_VERSION = "4.7.2"
+    private const val RETROFIT_VERSION = "2.11.0"
+    const val OKHTTP_VERSION = "4.12.0"
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${RETROFIT_VERSION}"
     const val RETROFIT_GSON = "com.squareup.retrofit2:converter-gson:${RETROFIT_VERSION}"
     const val LOGGING = "com.squareup.okhttp3:logging-interceptor:${OKHTTP_VERSION}"
   }
 
   object Serialization {
-    private const val GSON_VERSION = "2.8.8"
+    private const val GSON_VERSION = "2.11.0"
     const val GSON = "com.google.code.gson:gson:${GSON_VERSION}"
   }
 

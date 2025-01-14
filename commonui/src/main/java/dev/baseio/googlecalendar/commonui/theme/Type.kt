@@ -1,12 +1,10 @@
 package dev.baseio.googlecalendar.commonui.theme
 
 import androidx.compose.material.Typography
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
-import dev.baseio.googlecalendar.commonui.R
+import dev.baseio.googlecalendar.GoogleCalendarClone.R
 
 // Set of Material typography styles to start with
 

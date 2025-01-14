@@ -15,10 +15,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.statusBarsPadding
 import com.google.accompanist.pager.*
+import dev.baseio.googlecalendar.GoogleCalendarClone.R
 import dev.baseio.googlecalendar.commonui.theme.*
 import dev.baseio.googlecalendar.navigator.ComposeNavigator
 import dev.baseio.googlecalendar.navigator.GoogleCalendar
-import dev.baseio.googlecalendar.uionboarding.R
+
 
 @Composable
 fun GettingStartedUI(composeNavigator: ComposeNavigator) {
@@ -98,7 +99,7 @@ private fun GotItButton(composeNavigator: ComposeNavigator) {
     colors = ButtonDefaults.buttonColors(backgroundColor = GoogleCalendarColorProvider.colors.buttonColor)
   ) {
     Text(
-      stringResource(id = R.string.got_it),
+      "Got it",
       style = GoogleCalendarTypography.subtitle1.copy(GoogleCalendarColorProvider.colors.buttonTextColor)
     )
   }
@@ -114,9 +115,9 @@ private fun OnbSecondPage() {
       .fillMaxWidth()
   ) {
     Spacer(Modifier.padding(8.dp))
-    ImageDrawable(R.drawable.onb2)
+   // ImageDrawable(R.drawable.ic_eye)
     Spacer(Modifier.padding(8.dp))
-    GoogleCalendarOnboardingText(R.string.easy_to_scan, R.string.schedule_view_puts)
+    GoogleCalendarOnboardingText("Easy to scan and lovely to\\nlook at", "Schedule View puts images and maps on\\nyour calendar.")
     Spacer(Modifier.padding(8.dp))
   }
 }
@@ -131,15 +132,15 @@ private fun OnbFirstPage() {
       .fillMaxWidth()
   ) {
     Spacer(Modifier.padding(8.dp))
-    ImageDrawable(R.drawable.gettingstarted)
+ //   ImageDrawable(R.drawable.gettingstarted)
     Spacer(Modifier.padding(8.dp))
-    GoogleCalendarOnboardingText(R.string.google_calendar, R.string.make_most_everyday)
+    GoogleCalendarOnboardingText("Google Calendar", "make the most of everyday")
     Spacer(Modifier.padding(8.dp))
   }
 }
 
 @Composable
-private fun GoogleCalendarOnboardingText(primary: Int, secondary: Int) {
+private fun GoogleCalendarOnboardingText(primary: String, secondary:String) {
   var expanded by remember { mutableStateOf(false) }
   LaunchedEffect(Unit) {
     expanded = !expanded
@@ -152,13 +153,13 @@ private fun GoogleCalendarOnboardingText(primary: Int, secondary: Int) {
   ) {
     Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
       Text(
-        text = stringResource(id = primary),
+        text = primary,
         style = GoogleCalendarTypography.h5.copy(color = GoogleCalendarColorProvider.colors.textPrimary),
         textAlign = TextAlign.Center
       )
       Spacer(modifier = Modifier.height(24.dp))
       Text(
-        text = stringResource(id = secondary),
+        text = secondary,
         style = GoogleCalendarTypography.subtitle1.copy(color = GoogleCalendarColorProvider.colors.textSecondary),
         textAlign = TextAlign.Center
       )

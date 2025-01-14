@@ -2,16 +2,22 @@ plugins {
   id(BuildPlugins.ANDROID_LIBRARY_PLUGIN)
   id(BuildPlugins.KOTLIN_ANDROID_PLUGIN)
   id(BuildPlugins.KOTLIN_KAPT)
+  id(BuildPlugins.COMPOSE_COMPILER) version "2.0.20"
   id(BuildPlugins.DAGGER_HILT)
 }
 
 android {
   compileSdk = ProjectProperties.COMPILE_SDK
+  namespace = "dev.baseio.googlecalendar.GoogleCalendarClone"
 
   defaultConfig {
     minSdk = (ProjectProperties.MIN_SDK)
     targetSdk = (ProjectProperties.TARGET_SDK)
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  compileOptions {
+    isCoreLibraryDesugaringEnabled = true
   }
 
   buildTypes {
@@ -24,11 +30,12 @@ android {
 
 // Required for annotation processing plugins like Dagger
 kapt {
-  generateStubs = true
+ // generateStubs = true
   correctErrorTypes = true
 }
 
 dependencies {
+  coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
 
   implementation("com.github.vatbub:randomusers:1.3"){
     exclude("com.google.guava")

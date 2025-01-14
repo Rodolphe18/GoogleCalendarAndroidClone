@@ -21,7 +21,6 @@ import dev.baseio.googlecalendar.commonui.theme.GoogleCalendarColorProvider
 import dev.baseio.googlecalendar.commonui.theme.GoogleCalendarTypography
 
 @OptIn(
-  ExperimentalMaterial3Api::class,
   androidx.compose.foundation.ExperimentalFoundationApi::class
 )
 @Composable
@@ -45,7 +44,6 @@ fun CalendarEventsCards() {
 
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun CalendarCardHeader(isAccepted: Boolean, showDate: Boolean) {
   Row(
@@ -63,21 +61,18 @@ private fun CalendarCardHeader(isAccepted: Boolean, showDate: Boolean) {
   }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun EventCardInternal(isAccepted: Boolean, modifier: Modifier = Modifier) {
   Card(
-    modifier
+    modifier = modifier
       .fillMaxWidth()
       .padding(4.dp),
     shape = RoundedCornerShape(8.dp),
     border = BorderStroke(
       1.dp,
       if (!isAccepted) GoogleCalendarColorProvider.colors.uiBackground else GoogleCalendarColorProvider.colors.buttonColor
-    ),
-    containerColor = if (isAccepted) GoogleCalendarColorProvider.colors.uiBackground else GoogleCalendarColorProvider.colors.buttonColor
-  ) {
-    Column(Modifier.padding(8.dp)) {
+    )) {
+   Column(Modifier.padding(8.dp)) {
       EventText(
         text = "Jetpack Compose Discussions, Brainstorming",
         style = textStyle(isAccepted)

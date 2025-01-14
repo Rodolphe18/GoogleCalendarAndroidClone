@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         composeNavigator.handleNavigationCommands(navController)
       }
 
-      ProvideWindowInsets(windowInsetsAnimationsEnabled = true) {
         NavHost(
           navController = navController,
           startDestination = GoogleCalendar.OnBoarding.name,
@@ -43,7 +42,6 @@ class MainActivity : AppCompatActivity() {
           onboardingNavigation(composeNavigator)
           dashboardNavigation(composeNavigator)
         }
-      }
     }
   }
 }

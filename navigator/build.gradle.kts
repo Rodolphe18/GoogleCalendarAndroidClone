@@ -2,10 +2,12 @@ plugins {
   id(BuildPlugins.ANDROID_LIBRARY_PLUGIN)
   id(BuildPlugins.KOTLIN_ANDROID_PLUGIN)
   id(BuildPlugins.KOTLIN_KAPT)
+  id(BuildPlugins.COMPOSE_COMPILER) version "2.0.20"
 }
 
 android {
   compileSdk = ProjectProperties.COMPILE_SDK
+  namespace = "dev.baseio.googlecalendar.GoogleCalendarClone"
 
   defaultConfig {
     minSdk = (ProjectProperties.MIN_SDK)
@@ -23,6 +25,7 @@ android {
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
+    isCoreLibraryDesugaringEnabled = true
   }
 
   kotlinOptions {
@@ -36,11 +39,12 @@ android {
 
 // Required for annotation processing plugins like Dagger
 kapt {
-  generateStubs = true
+ // generateStubs = true
   correctErrorTypes = true
 }
 
 dependencies {
+  coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
   /*Kotlin*/
   implementation(Lib.Android.APP_COMPAT)
   implementation(Lib.Kotlin.KTX_CORE)

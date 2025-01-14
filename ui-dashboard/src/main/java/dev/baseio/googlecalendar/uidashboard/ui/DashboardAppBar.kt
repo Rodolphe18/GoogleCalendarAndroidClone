@@ -12,10 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.baseio.googlecalendar.commonui.theme.GoogleCalendarColorProvider
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DashboardAppBar(toggleDrawer: () -> Unit,onToggleMonth: () -> Unit) {
-  SmallTopAppBar(
-    colors = TopAppBarDefaults.smallTopAppBarColors(
+  TopAppBar(
+    colors = TopAppBarDefaults.topAppBarColors(
       containerColor = GoogleCalendarColorProvider.colors.appBarColor,
       navigationIconContentColor = GoogleCalendarColorProvider.colors.appBarIconColor,
       titleContentColor = GoogleCalendarColorProvider.colors.appBarTextTitleColor,
