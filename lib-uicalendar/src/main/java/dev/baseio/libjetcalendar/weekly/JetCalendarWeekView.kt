@@ -21,6 +21,7 @@ import dev.baseio.googlecalendar.commonui.theme.GoogleCalendarColorProvider
 import dev.baseio.googlecalendar.commonui.theme.GoogleCalendarTypography
 import dev.baseio.libjetcalendar.data.JetDay
 import dev.baseio.libjetcalendar.data.JetWeek
+import java.time.LocalDate
 
 @Composable
 fun JetCalendarWeekView(
@@ -29,6 +30,7 @@ fun JetCalendarWeekView(
   onDateSelected: (JetDay) -> Unit,
   selectedDates: JetDay,
 ) {
+
   LazyRow(
     modifier = modifier
       .fillMaxWidth(),
@@ -50,10 +52,7 @@ fun JetCalendarWeekView(
       ) {
         Text(
           text = date.date.dayOfMonth.toString(),
-          textAlign = TextAlign.Center,
-          style = GoogleCalendarTypography.subtitle1
-            .copy(color = if (date.isPartOfMonth) GoogleCalendarColorProvider.colors.appBarTextTitleColor else Color.Transparent)
-        )
+          textAlign = TextAlign.Center)
       }
     }
   }

@@ -2,13 +2,13 @@ package dev.baseio.googlecalendar.root
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.LaunchedEffect
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import com.google.accompanist.insets.ProvideWindowInsets
 import dagger.hilt.android.AndroidEntryPoint
 import dev.baseio.googlecalendar.navigator.ComposeNavigator
 import dev.baseio.googlecalendar.navigator.GoogleCalendar
@@ -24,24 +24,24 @@ class MainActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     installSplashScreen()
-
+    enableEdgeToEdge()
     super.onCreate(savedInstanceState)
     WindowCompat.setDecorFitsSystemWindows(window, false)
 
     setContent {
       val navController = rememberNavController()
-
       LaunchedEffect(Unit) {
         composeNavigator.handleNavigationCommands(navController)
       }
-
         NavHost(
           navController = navController,
-          startDestination = GoogleCalendar.OnBoarding.name,
+          startDestination = GoogleCalendar.Dashboard.name,
         ) {
           onboardingNavigation(composeNavigator)
           dashboardNavigation(composeNavigator)
         }
     }
   }
+
 }
+

@@ -45,6 +45,7 @@ kapt {
 }
 
 dependencies {
+    implementation(libs.androidx.material.android)
     testImplementation(libs.junit.junit)
     testImplementation(libs.junit.junit)
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
@@ -52,13 +53,11 @@ dependencies {
     api(Lib.Kotlin.KT_STD)
     api(Lib.Kotlin.KTX_CORE)
     /* Android Designing and layout */
-    api(Lib.Android.MATERIAL_DESIGN)
     api(Lib.Android.MATERIAL_THREE)
     api(Lib.Android.COMPOSE_UI)
     implementation(Lib.Android.CONSTRAINT_LAYOUT_COMPOSE)
     implementation(Lib.Android.ACCOMPANIST_SYSTEM_UI_CONTROLLER)
     api(Lib.Android.COIL_COMPOSE)
-    api(Lib.Android.COMPOSE_MATERIAL)
     api(Lib.Android.COMPOSE_TOOLING)
     debugApi(Lib.Android.COMPOSE_DEBUG_TOOLING)
     api(Lib.Android.ACTIVITY_COMPOSE)

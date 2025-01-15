@@ -17,13 +17,13 @@ import dev.baseio.googlecalendar.commonui.theme.GoogleCalendarSurface
 import dev.baseio.googlecalendar.commonui.theme.GoogleCalendarTheme
 import dev.baseio.googlecalendar.navigator.ComposeNavigator
 import dev.baseio.googlecalendar.uidashboard.ui.events.CalendarEventsCards
+import dev.baseio.libjetcalendar.monthly.CalendarDate
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 enum class CalendarExpansion { Collapsed, Expanded }
 
 @OptIn(
-  androidx.compose.material.ExperimentalMaterialApi::class,
   androidx.compose.animation.ExperimentalAnimationApi::class
 )
 @Composable
@@ -58,9 +58,6 @@ fun DashboardUI(composeNavigator: ComposeNavigator) {
       Scaffold(
         containerColor = GoogleCalendarColorProvider.colors.uiBackground,
         contentColor = GoogleCalendarColorProvider.colors.textPrimary,
-        modifier = Modifier
-          .statusBarsPadding()
-          .navigationBarsPadding(),
         topBar = {
           DashboardAppBar({
             switchDrawer(scope, drawerState)
@@ -76,7 +73,8 @@ fun DashboardUI(composeNavigator: ComposeNavigator) {
                 .fillMaxSize()
             ) {
               AnimatedVisibility(monthExpanded.value.isExpanded()) {
-                DashboardMonthView(Modifier.fillMaxWidth())
+              //  DashboardMonthView(Modifier.fillMaxWidth())
+                CalendarDate()
               }
               Box {
                 CalendarEventsCards()

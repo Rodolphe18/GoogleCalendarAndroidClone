@@ -14,6 +14,7 @@ import dev.baseio.libjetcalendar.data.JetDay
 import dev.baseio.libjetcalendar.data.JetMonth
 import dev.baseio.libjetcalendar.monthly.JetCalendarMonthlyView
 import dev.baseio.libjetcalendar.monthly.WeekNames
+import dev.baseio.libjetcalendar.weekly.JetCalendarWeekView
 import java.time.DayOfWeek
 import java.time.LocalDate
 
@@ -28,7 +29,7 @@ fun DashboardMonthView(modifier: Modifier) {
     }
 
     Column(Modifier.fillMaxWidth()) {
-      WeekNames(DayOfWeek.SUNDAY)
+      WeekNames(DayOfWeek.MONDAY)
       JetCalendarMonthlyView(
         jetMonth = JetMonth.current(),
         onDateSelected = {

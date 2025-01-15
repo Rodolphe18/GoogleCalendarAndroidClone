@@ -50,12 +50,10 @@ object Lib {
       "com.google.accompanist:accompanist-systemuicontroller:${ACCOMPANIST_VERSION}"
     const val COIL_COMPOSE = "io.coil-kt.coil3:coil-compose:${COMPOSE_COIL_VERSION}"
     const val COMPOSE_LIVEDATA = "androidx.compose.runtime:runtime-livedata:$COMPOSE_VERSION"
-    const val COMPOSE_MATERIAL = "androidx.compose.material:material:${COMPOSE_VERSION}"
     const val COMPOSE_TOOLING = "androidx.compose.ui:ui-tooling-preview:${COMPOSE_VERSION}"
     const val COMPOSE_DEBUG_TOOLING = "androidx.compose.ui:ui-tooling:${COMPOSE_VERSION}"
     const val COMPOSE_NAVIGATION =
       "androidx.navigation:navigation-compose:${COMPOSE_NAVIGATION_VERSION}"
-    const val MATERIAL_DESIGN = "com.google.android.material:material:${MATERIAL_DESIGN_VERSION}"
     const val MATERIAL_THREE = "androidx.compose.material3:material3:1.3.0"
     const val ACCOMPANIST_INSETS =
       "com.google.accompanist:accompanist-insets:${ACCOMPANIST_VERSION}"

@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import dev.baseio.googlecalendar.commonui.theme.GoogleCalendarColorProvider
 import dev.baseio.googlecalendar.commonui.theme.GoogleCalendarTypography
 
-@OptIn(ExperimentalMaterialApi::class)
+
 @Composable
 fun SlackListItem(
   icon: ImageVector,

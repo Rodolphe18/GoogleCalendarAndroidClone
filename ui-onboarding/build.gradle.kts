@@ -71,7 +71,6 @@ dependencies {
 
     api(Lib.Android.COMPOSE_UI)
     api(Lib.Android.COIL_COMPOSE)
-    api(Lib.Android.COMPOSE_MATERIAL)
     implementation(Lib.Android.ACCOMPANIST_SYSTEM_UI_CONTROLLER)
 
     implementation(Lib.Android.ACCOMPANIST_PAGER)

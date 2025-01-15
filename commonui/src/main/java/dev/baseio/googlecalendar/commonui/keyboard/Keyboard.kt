@@ -7,7 +7,7 @@ import androidx.compose.ui.platform.LocalView
 
 sealed class Keyboard {
   data class Opened(var height: Int) : Keyboard()
-  object Closed : Keyboard()
+  data object Closed : Keyboard()
 }
 
 @Composable

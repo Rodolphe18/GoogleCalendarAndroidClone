@@ -73,15 +73,8 @@ private fun EventCardInternal(isAccepted: Boolean, modifier: Modifier = Modifier
       if (!isAccepted) GoogleCalendarColorProvider.colors.uiBackground else GoogleCalendarColorProvider.colors.buttonColor
     )) {
    Column(Modifier.padding(8.dp)) {
-      EventText(
-        text = "Jetpack Compose Discussions, Brainstorming",
-        style = textStyle(isAccepted)
-      )
-
-      EventText(
-        text = "5:00 - 5:15 PM",
-        style = textStyle(isAccepted)
-      )
+      Text(text = "Jetpack Compose Discussions, Brainstorming")
+      Text(text = "5:00 - 5:15 PM")
     }
   }
 }
@@ -90,9 +83,7 @@ private fun EventCardInternal(isAccepted: Boolean, modifier: Modifier = Modifier
 fun DateHeaderItem() {
   Column(Modifier.padding(4.dp), horizontalAlignment = Alignment.CenterHorizontally) {
     Text(
-      text = "Mon", style = GoogleCalendarTypography.caption.copy(
-        GoogleCalendarColorProvider.colors.buttonColor
-      )
+      text = "Mon"
     )
     Box(
       modifier = Modifier
@@ -101,21 +92,12 @@ fun DateHeaderItem() {
         .background(GoogleCalendarColorProvider.colors.buttonColor)
     ) {
       Text(
-        text = "28", style = GoogleCalendarTypography.subtitle1.copy(
-          GoogleCalendarColorProvider.colors.buttonTextColor
-        ), modifier = Modifier.align(Alignment.Center)
+        text = "28", modifier = Modifier.align(Alignment.Center)
       )
     }
   }
 }
 
-@Composable
-private fun textStyle(isAccepted: Boolean) =
-  if (!isAccepted) GoogleCalendarTypography.subtitle2.copy(
-    GoogleCalendarColorProvider.colors.textPrimary
-  ) else GoogleCalendarTypography.subtitle2.copy(
-    GoogleCalendarColorProvider.colors.buttonColor
-  )
 
 @Composable
 fun EventText(text: String, style: TextStyle) {

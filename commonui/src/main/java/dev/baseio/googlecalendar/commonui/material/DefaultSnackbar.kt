@@ -2,7 +2,11 @@ package dev.baseio.googlecalendar.commonui.material
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.material.*
+import androidx.compose.material3.Snackbar
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,13 +26,13 @@ fun DefaultSnackbar(
       Snackbar(
         content = {
           Text(
-            text = data.message,
+            text = data.visuals.message,
             style = GoogleCalendarTypography.body1,
             color = GoogleCalendarColorProvider.colors.textPrimary,
             )
         },
         action = {
-          data.actionLabel?.let { actionLabel ->
+          data.visuals.actionLabel?.let { actionLabel ->
             TextButton(onClick = onDismiss) {
               Text(
                 text = actionLabel,
@@ -38,7 +42,7 @@ fun DefaultSnackbar(
             }
           }
         },
-        backgroundColor = Color.White
+        containerColor = Color.White
       )
     },
     modifier = modifier

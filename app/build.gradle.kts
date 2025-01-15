@@ -122,7 +122,6 @@ dependencies {
   implementation(Lib.Android.COMPOSE_LIVEDATA)
   implementation(Lib.Android.COMPOSE_NAVIGATION)
   implementation(Lib.Kotlin.KT_STD)
-  implementation(Lib.Android.MATERIAL_DESIGN)
   implementation(Lib.Android.MATERIAL_THREE)
   implementation(Lib.Android.CONSTRAINT_LAYOUT_COMPOSE)
   implementation(Lib.Android.ACCOMPANIST_INSETS)
@@ -151,6 +150,13 @@ dependencies {
   implementation(Lib.Room.roomKtx)
   implementation(Lib.Room.roomPaging)
 
+  implementation(libs.androidx.compose.material3.windowSizeClass)
+  implementation(libs.androidx.compose.foundation)
+  implementation(libs.androidx.compose.foundation.layout)
+  implementation(libs.androidx.compose.material.iconsExtended)
+  implementation(libs.androidx.compose.material3)
+  implementation(libs.androidx.compose.runtime)
+  implementation(libs.androidx.compose.ui.util)
 
   /*Testing*/
   testImplementation(TestLib.JUNIT)
